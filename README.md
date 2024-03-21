@@ -1,1 +1,3 @@
-# file-share
+# Sharing File
+
+Base on Go

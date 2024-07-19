@@ -3,7 +3,7 @@ import os
 
 import aws_cdk as cdk
 
-from python_lightsail.python_lightsail_stack import PythonLightsailStack
+from lightsail.python_lightsail_stack import PythonLightsailStack
 
 
 app = cdk.App()

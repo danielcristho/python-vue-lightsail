@@ -1,7 +1,7 @@
 import aws_cdk as core
 import aws_cdk.assertions as assertions
 
-from python_lightsail.python_lightsail_stack import PythonLightsailStack
+from lightsail.python_lightsail_stack import PythonLightsailStack
 
 # example tests. To run these tests, uncomment this file along with the example
 # resource in python_lightsail/python_lightsail_stack.py

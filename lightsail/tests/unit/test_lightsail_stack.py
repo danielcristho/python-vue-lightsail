@@ -1,13 +1,13 @@
 import aws_cdk as core
 import aws_cdk.assertions as assertions
 
-from lightsail.python_lightsail_stack import PythonLightsailStack
+from lightsail.lightsail_stack import LightsailStack
 
 # example tests. To run these tests, uncomment this file along with the example
-# resource in python_lightsail/python_lightsail_stack.py
+# resource in lightsail/lightsail_stack.py
 def test_sqs_queue_created():
     app = core.App()
-    stack = PythonLightsailStack(app, "python-lightsail")
+    stack = LightsailStack(app, "lightsail")
     template = assertions.Template.from_stack(stack)
 
 #     template.has_resource_properties("AWS::SQS::Queue", {

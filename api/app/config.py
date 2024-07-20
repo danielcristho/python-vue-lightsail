@@ -1,9 +1,17 @@
-DEV_DB = 'sqlite:///task.db'
+from dotenv import load_dotenv
+import os
 
-pg_user = 'admin'
-pg_pass = 'dbPassword'
-pg_db = 'todo'
-pg_host = 'db'
-pg_port = '5432'
+load_dotenv()
 
-PROD_DB = f'postgresql://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{pg_db}'
+FLASK_ENV = os.getenv('FLASK_ENV', 'development')
+
+PG_HOST = os.getenv('PG_HOST')
+PG_DB = os.getenv('PG_DB')
+PG_USER = os.getenv('PG_USER')
+PG_PASS = os.getenv('PG_PASS')
+PG_PORT = os.getenv('PG_PORT')
+
+if FLASK_ENV == 'production':
+    DB_URL = f'postgresql://{PG_USER}:{PG_PASS}@{PG_HOST}:{PG_PORT}/{PG_DB}'
+else:
+    DB_URL = f'postgresql://{PG_USER}:{PG_PASS}@{PG_HOST}:{PG_PORT}/{PG_DB}'

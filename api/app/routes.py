@@ -4,7 +4,7 @@ from .models import Book
 
 @app.route('/ping', methods=['GET'])
 def ping_pong():
-    return jsonify('pong!')
+    return jsonify(message='Pong!')
 
 @app.route('/books', methods=['GET', 'POST'])
 def all_books():

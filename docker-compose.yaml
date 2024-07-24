@@ -13,6 +13,15 @@ services:
           ipv4_address: 10.0.99.10
       volumes:
         - ../api:/api
+  vue:
+    build: frontend
+    container_name: frontend
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    networks:
+      flask_network:
+          ipv4_address: 10.0.99.11
   nginx:
       build: nginx
       restart: unless-stopped
@@ -21,7 +30,7 @@ services:
         - 80:80
       networks:
         flask_network:
-          ipv4_address: 10.0.99.11
+          ipv4_address: 10.0.99.12
   postgres:
       image: postgres:13
       container_name: db
@@ -38,14 +47,13 @@ services:
         - postgres_data:/var/lib/postgresql/data
       networks:
         flask_network:
-          ipv4_address: 10.0.99.12
+          ipv4_address: 10.0.99.13
 networks:
     flask_network:
         ipam:
             config:
                 - subnet: 10.0.99.0/24
         external: false
-
 
 volumes:
   postgres_data:

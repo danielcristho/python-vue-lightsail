@@ -1,6 +1,10 @@
+import sys
+import os
 import pytest
 
-from api.wsgi import app as flask_app
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
+from app import app as flask_app
 
 @pytest.fixture
 def app():
